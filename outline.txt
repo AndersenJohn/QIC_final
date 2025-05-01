@@ -1,0 +1,100 @@
+報告大綱：Quantum Random Access Memory Architectures and Applications
+1. Introduction to Quantum RAM (QRAM)
+1.1 Background
+從經典 RAM 講起，介紹隨機存取記憶體的基本概念
+Quantum random access memory
+
+QRAM 的意義：可在 quantum superposition 下存取資料
+
+1.2 Motivation
+為什麼需要 QRAM：大規模資料載入、加速搜尋、應用於機器學習
+Quantum Random Access Memory For Dummies
+Onthe robustness of bucket brigade quantum RAM
+
+1.3 應用場景簡述
+Grover 搜尋、QMS（Minimum Search）、Quantum kNN 等
+
+1.4 PHYSICAL IMPLEMENTATIONS
+A.Quantum optical implementation of the fanout qRAM
+B.PhasegateimplementationofthefanoutqRAM
+C.Bucket-brigade implementation
+
+2. Comparison of QRAM Architectures
+
+架構	結構	Circuit Width	Depth	實作難度	適用平台	優點	缺點
+Bucket-Brigade	Bifurcation graph	O(2ⁿ)	O(2ⁿ)	中	Photonic	有實驗模型	深度太深
+Fanout QRAM	Bifurcation graph	O(2ⁿ)	O(2ⁿ)	中	Photonic	控制簡單	容易退相干
+Flip-Flop QRAM	Quantum circuit	O(n)	O(2ⁿ)	高	Superconducting	減少 ancilla	動態切換難
+Qudit-based	多能階 qudit	依 d	依 d	難	Ion/Photonic	資源密度高	Qiskit 不支援
+PQC / EQGAN	Parametric QC	O(n)	O(1)	易	Universal QC	可訓練、適合 QML	非 RAM-like
+Quantum Random Access Memory For Dummies
+
+###
+3. Error Analysis
+Onthe robustness of bucket brigade quantum RAM
+
+3.1 Circuit Scalability
+對於 Bucket/Fanout QRAM 的 O(2ⁿ) 閘數與深度分析
+
+3.2 Resource Limits in Simulation
+Qiskit 的 qubit 數限制、multi-controlled gate 效能瓶頸
+###
+
+4. Grover’s Algorithm on Different QRAM Architectures
+4.1 Implementation Descriptions
+A. Bucket-Brigade QRAM + Grover
+
+B. PQC-based QRAM + Grover
+
+4.2 Circuit Comparisons
+電路圖、Qiskit gate 數、depth 統計
+
+4.3 Performance Analysis
+成功率比較、可擴展性、模擬效率
+
+5. Quantum Minimum Search (QMS) with Different QRAM Models
+5.1 QMS Overview
+結合 Grover 概念進行最小值搜尋
+
+Iterative oracle: 每輪找比前一輪更小的項
+
+5.2 Implementations
+A. Bucket-Brigade QMS
+
+B. PQC-based QRAM QMS
+
+C. Classical vector encoding QMS
+
+5.3 Comparison
+成功率 / 收斂輪數 / 效率分析
+
+#6. Quantum kNN with Different QRAM Models
+6.1 Algorithm Summary
+查詢向量與所有訓練樣本比較距離（swap test / inner product）
+
+6.2 Implementations
+A. QRAM hardcode + swap test
+
+B. PQC-encoded samples + swap test
+
+C. Amplitude-encoded samples + overlap circuit
+
+6.3 Comparison
+相似度準確度 / scalability / gate 數 / 模擬效能
+
+7. Conclusion and Future Work
+7.1 Summary of Results
+三種應用對於不同 QRAM 架構的表現比較
+
+7.2 Suggestions for Future Study
+可擴展 QRAM 模擬（ex. tensor network）
+
+Hardware-realistic noise model 實驗
+
+使用 qudit 平台（如 IonQ）測試 qudit-QRAM 模型
+
+附錄（可選）
+
+Qiskit 程式碼附錄
+
+電路作圖程式碼
