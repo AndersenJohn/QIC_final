@@ -16,7 +16,7 @@ Grover 搜尋、QMS（Minimum Search）、Quantum kNN 等
 
 1.4 PHYSICAL IMPLEMENTATIONS
 A.Quantum optical implementation of the fanout qRAM
-B.PhasegateimplementationofthefanoutqRAM
+B.Phase gate implementation of the fanout qRAM
 C.Bucket-brigade implementation
 
 2. Comparison of QRAM Architectures
@@ -63,7 +63,7 @@ A. Bucket-Brigade QMS
 
 B. PQC-based QRAM QMS
 
-C. Classical vector encoding QMS
+C. Classical vector encoding QMS #
 
 5.3 Comparison
 成功率 / 收斂輪數 / 效率分析
