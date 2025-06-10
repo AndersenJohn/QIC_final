@@ -210,7 +210,7 @@ Recent refinements replace the classical register by an
 falls below the running minimum, cutting circuit depth by a constant
 factor~\cite{Nakaji2021}.
 
-In quantum $k$-nearest-neighbour classification each training vector
+In quantum $k$-nearest-neighbor classification each training vector
 $\mathbf{v}^{(i)}$ is stored in one QRAM cell.
 A single query prepares
 $\sum_{i}\ket{i}\ket{v^{(i)}}\ket{x}$,
@@ -233,12 +233,12 @@ QRAM call costs less than $O(\sqrt{N})$ classical samples—which
 holds as long as the address register fits on available hardware.
 
 A final, more speculative, direction embeds QRAM inside variational
-quantum algorithms (VQAs): the loader initialises a parameterised state
+quantum algorithms (VQAs): the loader initializes a parameterized state
 $\ket{\psi(\theta)}$ with data-dependent angles;
 a shallow variational ansatz then refines the state before measurement
 \cite{Gilyen2023}.
-Early numerical experiments suggest that QRAM-initialised VQAs can
-converge in fewer optimisation steps than randomly initialised ones,
+Early numerical experiments suggest that QRAM-initialized VQAs can
+converge in fewer optimization steps than randomly initialised ones,
 albeit at the price of higher circuit width.
 
 The shared lesson across all these scenarios is that \emph{QRAM calls
@@ -257,7 +257,7 @@ evaluating any proposed QRAM implementation.
 Let each routing node be a qutrit
 \(\{\ket{0},\ket{1},\ket{\bullet}\}\).
 During one query exactly \(n\) nodes are driven by the address photons.
-Following the approach in Arunachalam \emph{et al.}~\cite{Arunachalam2015}, we assume each active routing node is affected by a local, independent CPTP noise channel, which we approximate as a depolarising channel for analytical tractability.
+Following the approach in Arunachalam \emph{et al.}~\cite{Arunachalam2015}, we assume each active routing node is affected by a local, independent CPTP noise channel, which we approximate as a depolarizing channel for analytical tractability.
 Three logical outcomes may occur:
 
 \begin{enumerate}
@@ -310,7 +310,7 @@ without full quantum error correction.
 A fan-out tree entangles the address register with a single bus photon
 that propagates through an \((2^{n}-1)\)-element GHZ state of routers
 \cite{Giovannetti2008}.  
-Modelling every router with an open-system master equation is intractable
+Modeling every router with an open-system master equation is intractable
 because the Lindblad operators act \emph{non-locally} on the collective
 GHZ mode.
 The accepted workaround is a union-bound argument:
@@ -349,7 +349,7 @@ Flip-flop (FF) QRAM is implemented by a \emph{circuit} that writes
 \(\Theta(M\,2^{n})\) elementary gates
 \cite{Park2019}.
 Park, Petruccione and Rhee assume that after every logical time step
-each qubit is depolarised with probability \(\varepsilon\).  
+each qubit is depolarized with probability \(\varepsilon\).  
 Writing one data set therefore succeeds with probability
 \begin{equation}
    P_{\mathrm{succ}}
@@ -383,7 +383,7 @@ more fault-tolerance-friendly than bb- or fan-out QRAM.
 A newer line of work replaces large, deterministic loaders by shallow
 \emph{variational} state-preparation circuits
 \cite{Benedetti2019,Du2022}.  
-Given classical amplitudes \(\mathbf{v}\in\mathbb{R}^{N}\) one optimises
+Given classical amplitudes \(\mathbf{v}\in\mathbb{R}^{N}\) one optimizes
 a logarithmic-depth unitary
 \(U(\boldsymbol{\theta})\) such that
 \(U(\boldsymbol{\theta})\ket{0}^{\otimes n}\approx\ket{v}\).
@@ -393,14 +393,16 @@ Two contributions add in series:
 
 \begin{enumerate}
 \item \textbf{Training error}  
-      \(\varepsilon_{\text{train}}
-        =1-\abs{\braket{v|U(\theta)0^{\otimes n}}}^{2}\).
+      \(
+  \varepsilon_{\text{train}}
+    = 1 \;-\; \left|\langle v \mid U(\theta)\mid 0^{\otimes n}\rangle\right|^{2}
+\).
       This is a \emph{classical} approximation error that can be made
-      arbitrarily small given enough optimiser iterations
+      arbitrarily small given enough optimizer iterations
       \cite{Du2022}.
 
 \item \textbf{Hardware noise}  
-      Each of the \(D=\Theta(\poly(n))\) gates undergoes a Pauli
+      Each of the \(D=\Theta(poly(n))\) gates undergoes a Pauli
       channel with probability \(p_{g}\).
       The state fidelity becomes
       \(F\approx (1-p_{g})^{D}\).
@@ -411,7 +413,7 @@ For an algorithm that calls the loader \(K\) times we demand
 \begin{equation}
    p_{g}
      \le \frac{\varepsilon-\varepsilon_{\text{train}}}{K\,D}
-     = \mathcal{O}\!\Bigl(\tfrac{1}{\poly(n)}\Bigr),
+     = \mathcal{O}\!\Bigl(\tfrac{1}{poly(n)}\Bigr),
    \label{eq:pqcBound}
 \end{equation}
 because both \(K\) and \(D\) are polynomial in \(n\)
